@@ -1,5 +1,6 @@
 package com.bean.libraries.enjoy;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -35,24 +36,53 @@ public class MainActivity extends AppCompatActivity {
                 FrameLayout.LayoutParams lp = new   FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,    ViewGroup.LayoutParams.WRAP_CONTENT);
                 lp.gravity = Gravity.CENTER;
                 textView.setLayoutParams(lp);
-                textView.setText("sdsdsd");
+                textView.setText(mCount+"");
                 return textView;
             }
         });
-        // 设置切入动画效果,自定义谈入效果
-        mTextSwitcher.setInAnimation(this, R.anim.slide_alpha_down_new);
-        // 设置切出动画效果，自定义谈出效果
-        mTextSwitcher.setOutAnimation(this, R.anim.slide_alpha_down_old);
+
     }
     // 点击效果
     public void onSwitchText(View v) {
         if (v.getAlpha()==0.5f) {
             v.setAlpha(1);
+            // 设置切入动画效果,自定义谈入效果
+            v.setBackgroundColor(getResources().getColor(R.color.grey));
+            mTextSwitcher.setInAnimation(this, R.anim.slide_alpha_down_new);
+            // 设置切出动画效果，自定义谈出效果
+            mTextSwitcher.setOutAnimation(this, R.anim.slide_alpha_down_old);
             --mCount;
         }else {
             v.setAlpha(0.5f);
+            v.setBackgroundColor(Color.RED);
+            // 设置切入动画效果,自定义谈入效果
+            mTextSwitcher.setInAnimation(this, R.anim.slide_alpha_up_new);
+            // 设置切出动画效果，自定义谈出效果
+            mTextSwitcher.setOutAnimation(this, R.anim.slide_alpha_up_old);
             ++mCount;
         }
+        // 设置渐变切换文字
+        mTextSwitcher.setText(mCount +"");
+    }
+
+    public void minus(View view) {
+        mButton.setBackgroundColor(getResources().getColor(R.color.grey));
+        // 设置切入动画效果,自定义谈入效果
+        mTextSwitcher.setInAnimation(this, R.anim.slide_alpha_down_new);
+        // 设置切出动画效果，自定义谈出效果
+        mTextSwitcher.setOutAnimation(this, R.anim.slide_alpha_down_old);
+        --mCount;
+        // 设置渐变切换文字
+        mTextSwitcher.setText(mCount +"");
+    }
+
+    public void add(View view) {
+        mButton.setBackgroundColor(Color.RED);
+        // 设置切入动画效果,自定义谈入效果
+        mTextSwitcher.setInAnimation(this, R.anim.slide_alpha_up_new);
+        // 设置切出动画效果，自定义谈出效果
+        mTextSwitcher.setOutAnimation(this, R.anim.slide_alpha_up_old);
+        ++mCount;
         // 设置渐变切换文字
         mTextSwitcher.setText(mCount +"");
     }

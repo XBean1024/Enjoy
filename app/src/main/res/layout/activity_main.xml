@@ -2,16 +2,19 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:orientation="horizontal"
-    android:gravity="center"
+    android:orientation="vertical"
     android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:minHeight="0dp"
-        android:alpha="0.5"
+        android:background="@color/grey"
         android:onClick="onSwitchText"
         android:text="点赞"/>
     <TextSwitcher
@@ -21,5 +24,30 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"/>
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:minHeight="0dp"
+        android:onClick="add"
+        android:text="+"/>
+
+    <Button
+        android:id="@+id/btn_minus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:minHeight="0dp"
+        android:onClick="minus"
+        android:text="-"/>
+
+</LinearLayout>
 
 </LinearLayout>
